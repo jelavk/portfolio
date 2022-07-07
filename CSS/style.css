@@ -1,0 +1,1630 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  grid-auto-rows: 100vh, 100%, 100vh, 100vh;
+  grid-template-areas:
+    "landing"
+    "about"
+    "projects"
+    "contact";
+  background-color: #f1f3f5;
+  overflow: hidden;
+}
+
+@keyframes flash {
+  25% {
+    color: #15aabf;
+  }
+
+  50% {
+    opacity: 0;
+    color: #fa5252;
+  }
+
+  75% {
+    color: #be4bdb;
+  }
+}
+
+@keyframes flashDesktop {
+  25% {
+    color: #15aabf;
+  }
+
+  50% {
+    color: #fa5252;
+  }
+
+  75% {
+    color: #be4bdb;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+
+  100% {
+    transform: translate(0px);
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(0px);
+  }
+
+  100% {
+    transform: translateX(100px);
+  }
+}
+
+@keyframes moveBack {
+  0% {
+    transform: translateX(100px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes titleAnimation {
+  0% {
+    transform: translateY(20px);
+  }
+
+  75% {
+    transform: translateY(-30px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.header {
+  background: linear-gradient(45deg, #dee2e6 50%, #dee2e6 26%, transparent 26%),
+    linear-gradient(-45deg, #f1f3f5 100%, #f1f3f5 27%, transparent 27%);
+  grid-area: landing;
+  height: 100vh;
+}
+
+.nav-open {
+  height: 100vh;
+  grid-area: landing;
+  background: linear-gradient(45deg, #f1f3f5 50%, #f1f3f5 26%, transparent 26%),
+    linear-gradient(-45deg, #dee2e6 100%, #dee2e6 27%, transparent 27%);
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+.nav-active {
+  opacity: 1;
+}
+
+.burger-container {
+  z-index: 3;
+  cursor: pointer;
+}
+
+.bg1 {
+  transform: rotate(0) translate(0, 0);
+  transition: transform 0.3s;
+}
+
+.toggle .bg1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.bg2 {
+  opacity: 1;
+  transition: transform 0.3s;
+}
+
+.toggle .bg2 {
+  opacity: 0;
+}
+
+.bg3 {
+  transform: rotate(0) translate(0, 0);
+  transition: transform 0.3s;
+}
+
+.toggle .bg3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.title {
+  font-family: "Staatliches", cursive;
+  color: #fa5252;
+  margin: 0 auto;
+  position: relative;
+}
+
+.title-animation {
+  animation: flash 2.5s ease-in infinite, titleAnimation 1s forwards;
+}
+
+.about {
+  min-height: 100vh;
+  grid-area: about;
+  background: linear-gradient(45deg, #be4bdb 50%, #be4bdb 26%, transparent 26%),
+    linear-gradient(-45deg, #eebefa 100%, #eebefa 27%, transparent 27%);
+}
+
+.about-title {
+  font-family: "Staatliches", cursive;
+  color: #f1f3f5;
+}
+
+.bio {
+  font-family: "Montserrat", sans-serif;
+  color: #f1f3f5;
+  text-align: justify;
+  transform: translateX(-60%);
+  transition: transform 0.5s ease-in;
+}
+
+.projects {
+  grid-area: projects;
+  height: 100vh;
+  background: linear-gradient(45deg, #dee2e6 50%, #dee2e6 26%, transparent 26%),
+    linear-gradient(-45deg, #f1f3f5 100%, #f1f3f5 27%, transparent 27%);
+}
+
+.projects-title {
+  font-family: "Staatliches", cursive;
+  animation: flash 2.5s ease-in infinite;
+  color: #fa5252;
+}
+
+.projects-intro {
+  font-family: "Montserrat", sans-serif;
+  color: #495057;
+  text-align: justify;
+  transform: translateX(-60%);
+  transition: transform 0.5s ease-in;
+}
+
+.projects-intro a {
+  text-decoration: none;
+  color: #495057;
+  border-bottom: solid #fa5252;
+}
+
+.inchoo-task {
+  font-family: "Staatliches", cursive;
+  color: #fa5252;
+  animation: flashDesktop 2.5s ease-in infinite;
+  margin: 0% 10%;
+  text-decoration: none;
+}
+
+.footer {
+  height: 100vh;
+  grid-area: contact;
+  background: linear-gradient(45deg, #15aabf 50%, #15aabf 26%, transparent 26%),
+    linear-gradient(-45deg, #a5d8ff 100%, #a5d8ff 27%, transparent 27%);
+}
+
+.contact-title {
+  display: flex;
+  justify-content: left;
+  margin: 5% 10%;
+  font-family: "Staatliches", cursive;
+  color: #f1f3f5;
+}
+
+.contact-info {
+  text-align: justify;
+  color: #f1f3f5;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+}
+
+.contact-content {
+  transform: translateX(-60%);
+  transition: transform 0.5s ease-in;
+  block-size: auto;
+  writing-mode: horizontal-tb;
+}
+
+.contact-instagram {
+  font-family: "Staatliches", cursive;
+  color: #f1f3f5;
+  text-decoration: none;
+}
+
+.contact-email {
+  font-family: "Staatliches", cursive;
+  color: #f1f3f5;
+  text-decoration: none;
+}
+
+.contact-github {
+  font-family: "Staatliches", cursive;
+  color: #f1f3f5;
+  text-decoration: none;
+}
+
+.contact-linkedin {
+  font-family: "Staatliches", cursive;
+  color: #f1f3f5;
+  text-decoration: none;
+}
+
+/*PHONE*/
+@media only screen and (max-width: 480px) {
+  /* LANDING PAGE*/
+  .header {
+    display: grid;
+    grid-auto-rows: 10% 75% 15%;
+    grid-template-areas:
+      "nav"
+      "title"
+      "tap";
+  }
+
+  .burger-container {
+    grid-area: nav;
+    position: absolute;
+    right: 0;
+    padding: 5%;
+  }
+
+  .burger {
+    background-color: #495057;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    cursor: pointer;
+  }
+
+  .navigation,
+  .desktop-about,
+  .desktop-projects,
+  .desktop-contact,
+  .i-am,
+  .jelena,
+  .hi {
+    display: none;
+  }
+
+  .nav-open h5 {
+    position: relative;
+    font-family: "Staatliches", cursive;
+    font-size: 2.5rem;
+    margin-left: 5%;
+  }
+
+  .nav-open-about {
+    color: #be4bdb;
+    top: 35%;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .nav-open-projects {
+    color: #15aabf;
+    top: 35%;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .nav-open-contact {
+    color: #12b886;
+    top: 35%;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .title {
+    grid-area: title;
+    top: 20%;
+    font-size: 6rem;
+  }
+
+  .tap {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5rem;
+    color: #495057;
+    font-weight: bolder;
+    margin: 0 auto;
+    grid-area: tap;
+    animation: bounce 1.5s infinite;
+  }
+
+  .hover {
+    visibility: hidden;
+  }
+
+  /*ABOUT*/
+  .about {
+    min-height: 100%;
+    display: grid;
+    grid-auto-rows: 10 90%;
+    grid-template-columns: 85% 15%;
+    grid-template-areas:
+      "about menu"
+      "bio bio";
+  }
+
+  .about-title {
+    margin-top: 5%;
+    grid-area: about;
+    font-size: 3rem;
+    display: flex;
+    justify-content: left;
+    margin: 5% 10%;
+  }
+
+  .abt-menu {
+    grid-area: menu;
+    font-family: "Staatliches", cursive;
+    color: #f1f3f5;
+    animation: bounce 1.5s infinite;
+    margin-top: 15%;
+  }
+
+  .bio {
+    grid-area: bio;
+    font-size: 1rem;
+    font-weight: bolder;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 15%;
+    margin-bottom: 5%;
+  }
+
+  /*PROJECTS*/
+  .projects {
+    display: grid;
+    grid-auto-rows: 10% 45% 45%;
+    grid-template-columns: 85% 15%;
+    grid-template-areas:
+      "projects-title menu"
+      "description description"
+      "project project";
+  }
+
+  .projects-title {
+    grid-area: projects-title;
+    font-size: 3rem;
+    display: flex;
+    justify-content: left;
+    margin: 5% 10%;
+  }
+
+  .projects-menu {
+    grid-area: menu;
+    font-family: "Staatliches", cursive;
+    color: #fa5252;
+    animation: bounce 1.5s infinite;
+    margin-top: 15%;
+  }
+
+  .projects-intro {
+    grid-area: description;
+    font-size: 1rem;
+    font-weight: bolder;
+    margin: 5% 10%;
+  }
+
+  .project-container {
+    grid-area: project;
+  }
+
+  .inchoo-task {
+    font-size: 2rem;
+  }
+
+  /*CONTACT*/
+  .footer {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 30% 60%;
+    grid-template-columns: 85% 15%;
+    grid-template-areas:
+      "contact-title menu"
+      "contact-info contact-info"
+      "contact-socials contact-socials";
+  }
+
+  .contact-title {
+    grid-area: contact-title;
+    font-size: 3rem;
+    display: flex;
+    justify-content: left;
+    margin: 10% 10%;
+  }
+
+  .contact-menu {
+    grid-area: menu;
+    font-family: "Staatliches", cursive;
+    color: #f1f3f5;
+    animation: bounce 1.5s infinite;
+    margin-top: 15%;
+  }
+
+  .contact-info {
+    grid-area: contact-info;
+    font-size: 1rem;
+    font-weight: bolder;
+    margin: 10% 10%;
+  }
+
+  .socials {
+    grid-area: contact-socials;
+    margin-top: 10%;
+  }
+
+  .contact-instagram {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-left: 10%;
+  }
+
+  .contact-email {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-left: 10%;
+  }
+
+  .contact-github {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-left: 10%;
+  }
+
+  .contact-linkedin {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-left: 10%;
+  }
+}
+
+/*TABLET*/
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* LANDING PAGE*/
+  .header {
+    display: grid;
+    grid-auto-rows: 10% 75% 15%;
+    grid-template-areas:
+      "nav"
+      "title"
+      "tap";
+  }
+
+  .navigation,
+  .desktop-about,
+  .desktop-projects,
+  .desktop-contact,
+  .i-am,
+  .jelena,
+  .hi {
+    display: none;
+  }
+
+  nav h5 {
+    display: none;
+  }
+
+  .burger-container {
+    grid-area: nav;
+    position: absolute;
+    right: 0;
+    padding: 5%;
+  }
+
+  .burger {
+    background-color: #495057;
+    width: 30px;
+    height: 4px;
+    margin: 4px;
+    cursor: pointer;
+  }
+
+  .nav-open h5 {
+    position: relative;
+    font-family: "Staatliches", cursive;
+    font-size: 2rem;
+    margin-left: 5%;
+  }
+
+  .nav-open-about {
+    color: #be4bdb;
+    top: 35%;
+    cursor: pointer;
+  }
+
+  .nav-open-projects {
+    color: #15aabf;
+    top: 35%;
+    cursor: pointer;
+  }
+
+  .nav-open-contact {
+    color: #12b886;
+    top: 35%;
+    cursor: pointer;
+  }
+
+  .title {
+    grid-area: title;
+    top: 35%;
+    font-size: 7rem;
+  }
+
+  .tap {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5rem;
+    color: #495057;
+    font-weight: bolder;
+    margin: 0 auto;
+    grid-area: tap;
+    animation: bounce 1.5s infinite;
+  }
+
+  .hover {
+    visibility: hidden;
+  }
+
+  /*ABOUT*/
+  .about {
+    display: grid;
+    grid-auto-rows: 10% 90%;
+    grid-template-columns: 85% 15%;
+    grid-template-areas:
+      "about menu"
+      "bio bio";
+  }
+
+  .about-title {
+    grid-area: about;
+    font-size: 3rem;
+    display: flex;
+    justify-content: left;
+    margin: 5% 15%;
+  }
+
+  .abt-menu {
+    grid-area: menu;
+    font-size: 2rem;
+    font-family: "Staatliches", cursive;
+    color: #f1f3f5;
+    animation: bounce 1.5s infinite;
+    margin-top: 15%;
+  }
+
+  .bio {
+    grid-area: bio;
+    font-size: 1rem;
+    font-weight: bolder;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 20%;
+  }
+
+  /*PROJECTS*/
+  .projects {
+    display: grid;
+    grid-auto-rows: 10% 35% 55%;
+    grid-template-columns: 85% 15%;
+    grid-template-areas:
+      "projects-title menu"
+      "description description"
+      "project project";
+  }
+
+  .projects-title {
+    grid-area: projects-title;
+    font-size: 3rem;
+    display: flex;
+    justify-content: left;
+    margin: 5% 10%;
+  }
+
+  .projects-menu {
+    grid-area: menu;
+    font-size: 2rem;
+    font-family: "Staatliches", cursive;
+    color: #fa5252;
+    animation: bounce 1.5s infinite;
+    margin-top: 15%;
+  }
+
+  .projects-intro {
+    grid-area: description;
+    font-size: 1rem;
+    margin: 5% 25%;
+    font-weight: bolder;
+  }
+
+  .project-container {
+    grid-area: project;
+  }
+
+  .inchoo-task {
+    margin: 0% 25%;
+    font-size: 1.2rem;
+  }
+
+  /*CONTACT*/
+  .footer {
+    display: grid;
+    grid-template-columns: 85% 15%;
+    grid-template-rows: 15% 25% 40%;
+    grid-template-areas:
+      "contact-title menu"
+      "contact-info contact-info"
+      "contact-socials contact-socials";
+  }
+
+  .contact-title {
+    grid-area: contact-title;
+    font-size: 3em;
+    display: flex;
+    justify-content: left;
+    margin: 5% 10%;
+  }
+
+  .contact-menu {
+    grid-area: menu;
+    font-size: 2rem;
+    font-family: "Staatliches", cursive;
+    color: #f1f3f5;
+    animation: bounce 1.5s infinite;
+    margin-top: 15%;
+  }
+
+  .contact-info {
+    grid-area: contact-info;
+    font-size: 1rem;
+    margin: 0% 25%;
+  }
+
+  .socials {
+    grid-area: contact-socials;
+    margin-top: 20%;
+    margin-left: 15%;
+  }
+
+  .contact-instagram {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: 0% 10%;
+  }
+
+  .contact-email {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: 0% 10%;
+  }
+
+  .contact-github {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: 0% 10%;
+  }
+
+  .contact-linkedin {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: 0% 10%;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* LANDING PAGE*/
+  .header {
+    display: grid;
+    grid-auto-rows: 10% 75% 15%;
+    grid-template-areas:
+      "nav"
+      "title"
+      "tap";
+  }
+
+  .hi {
+    display: none;
+  }
+
+  .jelena {
+    display: none;
+  }
+
+  nav h5 {
+    display: none;
+  }
+
+  .burger-container {
+    grid-area: nav;
+    position: absolute;
+    right: 0;
+    padding: 5%;
+  }
+
+  .burger {
+    background-color: #495057;
+    width: 30px;
+    height: 4px;
+    margin: 4px;
+    cursor: pointer;
+  }
+
+  .nav-open h5 {
+    position: relative;
+    font-family: "Staatliches", cursive;
+    font-size: 3rem;
+    margin-left: 5%;
+  }
+
+  .nav-open-about {
+    color: #be4bdb;
+    top: 35%;
+    cursor: pointer;
+  }
+
+  .nav-open-projects {
+    color: #15aabf;
+    top: 35%;
+    cursor: pointer;
+  }
+
+  .nav-open-contact {
+    color: #12b886;
+    top: 35%;
+    cursor: pointer;
+  }
+
+  .title {
+    grid-area: title;
+    top: 20%;
+    font-size: 8rem;
+  }
+
+  .tap {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5rem;
+    color: #495057;
+    font-weight: bolder;
+    margin: 0 auto;
+    grid-area: tap;
+    animation: bounce 1.5s infinite;
+  }
+
+  .hover {
+    visibility: hidden;
+  }
+
+  /*ABOUT*/
+  .about {
+    display: grid;
+    grid-auto-rows: 10% 90%;
+    grid-template-columns: 85% 15%;
+    grid-template-areas:
+      "about menu"
+      "bio bio";
+  }
+
+  .about-title {
+    grid-area: about;
+    font-size: 3.5rem;
+    margin: 10% 15%;
+  }
+
+  .abt-menu {
+    grid-area: menu;
+    font-size: 2rem;
+    font-family: "Staatliches", cursive;
+    color: #f1f3f5;
+    animation: bounce 1.5s infinite;
+    margin-top: 15%;
+  }
+
+  .bio {
+    grid-area: bio;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 20%;
+  }
+
+  /*PROJECTS*/
+  .projects {
+    display: grid;
+    grid-template-columns: 85% 15%;
+    grid-auto-rows: 10% 35% 55%;
+    grid-template-areas:
+      "projects-title menu"
+      "description description"
+      "project project";
+  }
+
+  .projects-title {
+    margin: 5% 15%;
+    grid-area: projects-title;
+    font-size: 3.5rem;
+  }
+
+  .projects-menu {
+    grid-area: menu;
+    font-size: 2rem;
+    font-family: "Staatliches", cursive;
+    color: #fa5252;
+    animation: bounce 1.5s infinite;
+    margin-top: 15%;
+  }
+
+  .projects-intro {
+    text-align: justify;
+    grid-area: description;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    margin: 5% 25%;
+  }
+
+  .project-container {
+    grid-area: project;
+    margin: 5% 0%;
+  }
+
+  .inchoo-task {
+    margin: 0% 25%;
+    font-size: 1.5rem;
+  }
+
+  /*CONTACT*/
+  .footer {
+    display: grid;
+    grid-template-columns: 85% 15%;
+    grid-template-rows: 15% 25% 40%;
+    grid-template-areas:
+      "contact-title menu"
+      "contact-info contact-info"
+      "contact-socials contact-socials";
+  }
+
+  .contact-title {
+    grid-area: contact-title;
+    font-size: 3.5rem;
+    display: flex;
+    justify-content: left;
+    margin: 5% 15%;
+  }
+
+  .contact-menu {
+    grid-area: menu;
+    font-size: 2rem;
+    font-family: "Staatliches", cursive;
+    color: #f1f3f5;
+    animation: bounce 1.5s infinite;
+    margin-top: 15%;
+  }
+
+  .contact-info {
+    grid-area: contact-info;
+    font-weight: bolder;
+    font-size: 1.2rem;
+    text-align: justify;
+    margin: 0% 25%;
+  }
+
+  .socials {
+    margin: 15% 25%;
+  }
+
+  .contact-instagram {
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+  }
+
+  .contact-email {
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+  }
+
+  .contact-github {
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+  }
+
+  .contact-linkedin {
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+  }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  .header {
+    display: grid;
+    grid-auto-columns: 45% 55%;
+    grid-template-rows: 45% 45% 10%;
+    grid-template-areas:
+      "hi im"
+      "hi jelena"
+      "hover hover";
+  }
+
+  .burger-container {
+    display: none;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .nav-open {
+    display: none;
+  }
+
+  .hi {
+    grid-area: hi;
+    font-family: "Staatliches", cursive;
+    color: #fa5252;
+    font-size: 25rem;
+    animation: flashDesktop 2.5s ease-in infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10%;
+    cursor: pointer;
+  }
+
+  .i-am {
+    grid-area: im;
+    font-family: "Staatliches", cursive;
+    color: #fa5252;
+    font-size: 10rem;
+    animation: flashDesktop 2.5s ease-in infinite;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 25%;
+    margin-left: 25%;
+    cursor: pointer;
+  }
+
+  .jelena {
+    grid-area: jelena;
+    font-family: "Staatliches", cursive;
+    color: #fa5252;
+    font-size: 9rem;
+    animation: flashDesktop 2.5s ease-in infinite;
+    display: flex;
+    justify-content: left;
+    align-items: top;
+    margin-left: 20%;
+    cursor: pointer;
+  }
+
+  .desktop-about {
+    grid-area: hi;
+    font-family: "Staatliches", cursive;
+    color: #fa5252;
+    font-size: 14rem;
+    animation: flashDesktop 2.5s ease-in infinite;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 10%;
+    visibility: hidden;
+    cursor: pointer;
+  }
+
+  .desktop-projects {
+    grid-area: im;
+    font-family: "Staatliches", cursive;
+    color: #fa5252;
+    font-size: 9rem;
+    animation: flashDesktop 2.5s ease-in infinite;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 30%;
+    margin-left: 15%;
+    visibility: hidden;
+    transition: visibility 0.2s ease-in;
+    cursor: pointer;
+  }
+
+  .desktop-contact {
+    grid-area: jelena;
+    font-family: "Staatliches", cursive;
+    color: #fa5252;
+    font-size: 9rem;
+    animation: flashDesktop 2.5s ease-in infinite;
+    display: flex;
+    justify-content: left;
+    align-items: top;
+    margin-left: 20%;
+    visibility: hidden;
+    transition: visibility 0.2s ease-in;
+    cursor: pointer;
+  }
+
+  .desktop-nav-active {
+    visibility: visible;
+    animation: moveRight 0.3s forwards;
+  }
+
+  .desktop-nav-animation {
+    animation: moveBack 0.5s forwards;
+  }
+
+  .desktop-title-move {
+    transform: translateX("100px");
+  }
+
+  .title {
+    display: none;
+  }
+
+  .tap {
+    display: none;
+  }
+
+  .hover {
+    grid-area: hover;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5rem;
+    color: #495057;
+    font-weight: bolder;
+    margin: 0 auto;
+    animation: bounce 1.5s infinite;
+  }
+
+  /*ABOUT*/
+  .about {
+    display: grid;
+    grid-auto-rows: 10% 90%;
+    grid-template-columns: 90% 10%;
+    grid-template-areas:
+      "about menu"
+      "bio bio";
+  }
+
+  .about-title {
+    grid-area: about;
+    font-size: 3.5rem;
+    margin: 5% 20%;
+  }
+
+  .abt-menu {
+    grid-area: menu;
+    font-family: "Staatliches", cursive;
+    color: #f1f3f5;
+    font-size: 2rem;
+    animation: bounce 1.5s infinite;
+    cursor: pointer;
+    margin-top: 15%;
+  }
+
+  .bio {
+    grid-area: bio;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 10%;
+  }
+
+  /*PROJECTS*/
+  .projects {
+    display: grid;
+    grid-auto-rows: 10% 35% 55%;
+    grid-template-columns: 90% 10%;
+    grid-template-areas:
+      "projects-title menu"
+      "description description"
+      "project project";
+  }
+
+  .projects-title {
+    margin: 5% 20%;
+    grid-area: projects-title;
+    font-size: 3.5rem;
+  }
+
+  .projects-menu {
+    grid-area: menu;
+    font-family: "Staatliches", cursive;
+    color: #fa5252;
+    font-size: 2rem;
+    animation: bounce 1.5s infinite, flash 2.5s ease-in infinite;
+    cursor: pointer;
+    margin-top: 15%;
+  }
+
+  .projects-intro {
+    text-align: justify;
+    grid-area: description;
+    font-size: 1rem;
+    font-weight: bolder;
+    margin: 5% 30%;
+  }
+
+  .inchoo-task {
+    margin: 0% 33%;
+    font-size: 2rem;
+    animation: flashDesktop 2.5s ease-in infinite, moveBack 0.5s forwards;
+    cursor: pointer;
+  }
+
+  .inchoo-task:hover {
+    animation: moveRight 0.5s forwards;
+  }
+
+  /*CONTACT*/
+  .footer {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 90% 10%;
+    grid-template-rows: 10% 50% 40%;
+    grid-template-areas:
+      "contact-title menu"
+      "contact-info contact-info"
+      "contact-socials contact-socials";
+  }
+
+  .contact-title {
+    grid-area: contact-title;
+    font-size: 3.5rem;
+    display: flex;
+    justify-content: left;
+    margin: 2% 20%;
+  }
+
+  .contact-menu {
+    grid-area: menu;
+    color: #f1f3f5;
+    font-size: 2rem;
+    font-family: "Staatliches", cursive;
+    animation: bounce 1.5s infinite;
+    cursor: pointer;
+    margin-top: 15%;
+  }
+
+  .contact-info {
+    grid-area: contact-info;
+    font-size: 1rem;
+    margin: 5% 30%;
+    text-align: justify;
+  }
+
+  .socials {
+    width: 200px;
+    margin-left: 30%;
+  }
+
+  .contact-instagram {
+    margin-bottom: 5%;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    cursor: pointer;
+    animation: moveBack 0.5s forwards;
+  }
+
+  .contact-instagram:hover {
+    animation: moveRight 0.5s forwards;
+  }
+
+  .contact-email {
+    margin-bottom: 5%;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    cursor: pointer;
+    animation: moveBack 0.5s forwards;
+  }
+
+  .contact-email:hover {
+    animation: moveRight 0.5s forwards;
+  }
+
+  .contact-github {
+    margin-bottom: 5%;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    cursor: pointer;
+    animation: moveBack 0.5s forwards;
+  }
+
+  .contact-github:hover {
+    animation: moveRight 0.5s forwards;
+  }
+
+  .contact-linkedin {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    cursor: pointer;
+    animation: moveBack 0.5s forwards;
+  }
+
+  .contact-linkedin:hover {
+    animation: moveRight 0.5s forwards;
+  }
+}
+
+@media only screen and (min-width: 1201px) {
+  /*body {
+    overflow-y: hidden;
+  }*/
+
+  .header {
+    display: grid;
+    grid-auto-columns: 45% 55%;
+    grid-template-rows: 45% 45% 10%;
+    grid-template-areas:
+      "hi im"
+      "hi jelena"
+      "hover hover";
+  }
+
+  .burger-container {
+    display: none;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .nav-open {
+    display: none;
+  }
+
+  .hi {
+    grid-area: hi;
+    font-family: "Staatliches", cursive;
+    color: #fa5252;
+    font-size: 25rem;
+    animation: flashDesktop 2.5s ease-in infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10%;
+    cursor: pointer;
+  }
+
+  .i-am {
+    grid-area: im;
+    font-family: "Staatliches", cursive;
+    color: #fa5252;
+    font-size: 10rem;
+    animation: flashDesktop 2.5s ease-in infinite;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 25%;
+    margin-left: 25%;
+    cursor: pointer;
+  }
+
+  .jelena {
+    grid-area: jelena;
+    font-family: "Staatliches", cursive;
+    color: #fa5252;
+    font-size: 9rem;
+    animation: flashDesktop 2.5s ease-in infinite;
+    display: flex;
+    justify-content: left;
+    align-items: top;
+    margin-left: 20%;
+    cursor: pointer;
+  }
+
+  .desktop-about {
+    grid-area: hi;
+    font-family: "Staatliches", cursive;
+    color: #fa5252;
+    font-size: 14rem;
+    animation: flashDesktop 2.5s ease-in infinite;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 10%;
+    visibility: hidden;
+    cursor: pointer;
+  }
+
+  .desktop-projects {
+    grid-area: im;
+    font-family: "Staatliches", cursive;
+    color: #fa5252;
+    font-size: 9rem;
+    animation: flashDesktop 2.5s ease-in infinite;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 30%;
+    margin-left: 15%;
+    visibility: hidden;
+    transition: visibility 0.2s ease-in;
+    cursor: pointer;
+  }
+
+  .desktop-contact {
+    grid-area: jelena;
+    font-family: "Staatliches", cursive;
+    color: #fa5252;
+    font-size: 9rem;
+    animation: flashDesktop 2.5s ease-in infinite;
+    display: flex;
+    justify-content: left;
+    align-items: top;
+    margin-left: 20%;
+    visibility: hidden;
+    transition: visibility 0.2s ease-in;
+    cursor: pointer;
+  }
+
+  .desktop-nav-active {
+    visibility: visible;
+    animation: moveRight 0.3s forwards;
+  }
+
+  .desktop-nav-animation {
+    animation: moveBack 0.5s forwards;
+  }
+
+  .desktop-title-move {
+    transform: translateX("100px");
+  }
+
+  .title {
+    display: none;
+  }
+
+  .tap {
+    display: none;
+  }
+
+  .hover {
+    grid-area: hover;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2rem;
+    color: #495057;
+    font-weight: bolder;
+    animation: bounce 1.5s infinite;
+    display: flex;
+    justify-content: center;
+  }
+
+  /*ABOUT*/
+  .about {
+    height: auto;
+    display: grid;
+    grid-auto-rows: 10% 90%;
+    grid-template-columns: 90% 10%;
+    grid-template-areas:
+      "about menu"
+      "bio bio";
+  }
+
+  .about-title {
+    grid-area: about;
+    font-size: 4.5em;
+    margin: 5% 20%;
+  }
+
+  .abt-menu {
+    grid-area: menu;
+    font-family: "Staatliches", cursive;
+    color: #f1f3f5;
+    font-size: 3rem;
+    animation: bounce 1.5s infinite;
+    cursor: pointer;
+  }
+
+  .bio {
+    grid-area: bio;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 10%;
+  }
+
+  /*PROJECTS*/
+  .projects {
+    display: grid;
+    grid-auto-rows: 10% 35% 55%;
+    grid-template-columns: 90% 10%;
+    grid-template-areas:
+      "projects-title menu"
+      "description description"
+      "project project";
+  }
+
+  .projects-title {
+    grid-area: projects-title;
+    font-size: 4.5rem;
+    margin: 5% 20%;
+  }
+
+  .projects-menu {
+    grid-area: menu;
+    font-family: "Staatliches", cursive;
+    color: #fa5252;
+    font-size: 3rem;
+    animation: bounce 1.5s infinite, flash 2.5s ease-in infinite;
+    cursor: pointer;
+  }
+
+  .projects-intro {
+    text-align: justify;
+    grid-area: description;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    margin: 8% 30%;
+  }
+
+  .project-container {
+    grid-area: project;
+    margin: 10% 0%;
+  }
+
+  .inchoo-task {
+    font-size: 2rem;
+    margin: 0% 30%;
+    animation: flashDesktop 2.5s ease-in infinite, moveBack 0.5s forwards;
+    cursor: pointer;
+  }
+
+  .inchoo-task:hover {
+    animation: moveRight 0.5s forwards;
+  }
+
+  /*CONTACT*/
+  .footer {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 90% 10%;
+    grid-template-rows: 10% 50% 40%;
+    grid-template-areas:
+      "contact-title menu"
+      "contact-info contact-info"
+      "contact-socials contact-socials";
+  }
+
+  .contact-title {
+    grid-area: contact-title;
+    font-size: 4.5rem;
+    display: flex;
+    justify-content: left;
+    margin: 2% 20%;
+  }
+
+  .contact-menu {
+    grid-area: menu;
+    color: #f1f3f5;
+    font-size: 3rem;
+    font-family: "Staatliches", cursive;
+    animation: bounce 1.5s infinite;
+    cursor: pointer;
+  }
+
+  .contact-info {
+    grid-area: contact-info;
+    font-size: 1.2rem;
+    margin: 5% 30%;
+    text-align: justify;
+  }
+
+  .socials {
+    width: 200px;
+    margin-left: 30%;
+  }
+
+  .contact-instagram {
+    margin-bottom: 5%;
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    cursor: pointer;
+    animation: moveBack 0.5s forwards;
+  }
+
+  .contact-instagram:hover {
+    animation: moveRight 0.5s forwards;
+  }
+
+  .contact-email {
+    margin-bottom: 5%;
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    cursor: pointer;
+    animation: moveBack 0.5s forwards;
+  }
+
+  .contact-email:hover {
+    animation: moveRight 0.5s forwards;
+  }
+
+  .contact-github {
+    margin-bottom: 5%;
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    cursor: pointer;
+    animation: moveBack 0.5s forwards;
+  }
+
+  .contact-github:hover {
+    animation: moveRight 0.5s forwards;
+  }
+
+  .contact-linkedin {
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    cursor: pointer;
+    animation: moveBack 0.5s forwards;
+  }
+
+  .contact-linkedin:hover {
+    animation: moveRight 0.5s forwards;
+  }
+}
